@@ -31,7 +31,7 @@ spec:
     spec:
       containers:
       - name: helloworld
-        image: docker.io/istio/examples-helloworld-v1
+        image: kevingr/node-web-app
         resources:
           requests:
             cpu: "100m"
@@ -39,30 +39,3 @@ spec:
         ports:
         - containerPort: 5000
 ---
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: helloworld-v2
-  labels:
-    version: v2
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: helloworld
-      version: v2
-  template:
-    metadata:
-      labels:
-        app: helloworld
-        version: v2
-    spec:
-      containers:
-      - name: helloworld
-        image: docker.io/istio/examples-helloworld-v2
-        resources:
-          requests:
-            cpu: "100m"
-        imagePullPolicy: IfNotPresent #Always
-        ports:
-        - containerPort: 5000
