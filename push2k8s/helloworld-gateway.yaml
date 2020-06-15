@@ -25,9 +25,9 @@ spec:
   http:
   - match:
     - uri:
-        exact: /hello
+        exact: /
     route:
     - destination:
         host: helloworld
         port:
-          number: 5000
+          number: 8080
